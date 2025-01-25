@@ -57,7 +57,7 @@ cancel.addEventListener("click", (e) => {
 apply.addEventListener("click", (e) => {
   popUp.classList.add("hide");
   document.querySelector(".container").classList.remove("dim");
-  if (inp.value === "") {
+  if (inp.value.trim() === "") {
   } else {
         todo.innerHTML += `<div class="note">
                       <div class="note-text">
@@ -182,7 +182,8 @@ if(todo){
   if(todo.innerHTML == ""){
     todo.classList.add("empty");
     num = 1;
-    localStorage.setItem("num", num);
+    // localStorage.setItem("num", num);
+    localStorage.clear();
   } else {
     todo.classList.remove("empty");
   }
