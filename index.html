@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDoList</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">todo list</h1>
+      <div class="strip">
+        <div class="search">
+          <input class="search-field" type="text" />
+          <i class="bx bx-search-alt"></i>
+        </div>
+        <div class="all">
+          <span>all</span>
+          <i class="bx bxs-chevron-down"></i>
+        </div>
+        <div class="theme" title="change theme">
+          <i class="bx bx-moon"></i>
+        </div>
+      </div>
+      <div class="todo"></div>
+      <div class="add" title="add">+</div>
+    </div>
+    <div class="popup hide">
+      <div class="top">
+        <h1>new note</h1>
+        <input class="add-task" type="text" />
+      </div>
+      <div class="bottom">
+        <button class="cancel">cancel</button>
+        <button class="apply">apply</button>
+      </div>
+    </div>
+    <!-- <input type="text" name="" id="" />
+    <ul class="u"></ul> -->
+
+    <script defer src="script.js"></script>
+  </body>
+</html>

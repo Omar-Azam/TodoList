@@ -1,0 +1,241 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  :root {
+    --blue: #1e90ff;
+    --white: #ffffff;
+  }
+  body {
+    height: 100vh;
+    width: 100%;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+      sans-serif;
+  }
+  .container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    background-color: var(--white);
+    /* background-color: bisque; */
+    flex-direction: column;
+  }
+  .title {
+    text-transform: uppercase;
+    font-size: 2vw;
+    margin-top: 0.7vw;
+  }
+  .strip {
+    display: flex;
+    margin-top: 0.7vw;
+  }
+  .search {
+    height: 2.5vw;
+    width: 45vw;
+    /* background-color: burlywood; */
+    display: flex;
+    align-items: center;
+    border-radius: 0.5vw;
+    border: 0.17vw solid var(--blue);
+    /* outline: 0.1vw solid; */
+  }
+  .search:focus-within {
+    /* This is the key to the focus behavior */
+    outline: 0.13vw solid var(--blue); /* Blue outline */
+  }
+  .search-field {
+    outline: none;
+    background-color: transparent;
+    /* background-color: aliceblue; */
+    border: none;
+    height: 2.5vw;
+    width: 40vw;
+    border-radius: 0.5vw;
+    font-size: 1.1vw;
+    margin-left: 0.7vw;
+  }
+  .bx-search-alt {
+    /* height: 3vw; */
+    /* margin-top: 1vw; */
+    font-size: 1.7vw;
+    margin-left: 1.7vw;
+    color: var(--blue);
+  }
+  .all {
+    display: flex;
+    align-items: center;
+    height: 2.5vw;
+    width: 5.5vw;
+    background-color: var(--blue);
+    color: var(--white);
+    margin-left: 1.5vw;
+    border-radius: 0.5vw;
+  }
+  .all span {
+    font-size: 1.3vw;
+    text-transform: uppercase;
+    margin-left: 0.7vw;
+    font-weight: 600;
+  }
+  .bxs-chevron-down {
+    margin-left: 1vw;
+    font-size: 1.1vw;
+  }
+  .theme {
+    height: 2.5vw;
+    width: 2.5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1.5vw;
+    border-radius: 0.5vw;
+    background-color: var(--blue);
+    color: var(--white);
+    cursor: pointer;
+  }
+  .bx-moon {
+    font-size: 1.8vw;
+  }
+  .todo {
+    height: 75%;
+    width: 45%;
+    margin-top: 0.3vw;
+    overflow: auto;
+    scrollbar-width: none;
+    /* display: flex;
+    flex-direction: column; */
+    /* background-image: url("https://www.transparenttextures.com/patterns/brushed-alum.png"); */  }
+  .empty{
+    background-image: url(2953962.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .note {
+    height: 5vw;
+    border-bottom: 0.15vw solid var(--blue);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .note-text {
+    display: flex;
+    align-items: center;
+  }
+  .check {
+    height: 1.7vw;
+    width: 1.7vw;
+    /* outline: 0.1vw solid; */
+    color: grey;
+    /* background-color: transparent; */
+  }
+  .note-text span {
+    font-size: 1.3vw;
+    font-weight: 600;
+    margin-left: 1vw;
+    /* text-transform: capitalize; */
+  }
+
+  
+  .bx-message-rounded-x{
+    font-size: 1.7vw;
+    /* color: grey; */
+    display: none;
+    cursor: pointer;
+}
+.note:hover .bx-message-rounded-x{
+    display: block;
+  }
+  .add {
+    height: 3vw;
+    width: 3vw;
+    background-color: var(--blue);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.5vw;
+    padding-bottom: 0.9vw;
+    margin-left: 53vw;
+    cursor: pointer;
+  }
+  .popup {
+    height: 40%;
+    width: 30%;
+    background-color: var(--white);
+    position: absolute;
+    top: 30%;
+    left: 35%;
+    border-radius: 1.5vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .top h1 {
+    font-size: 1.7vw;
+    text-transform: uppercase;
+    margin-top: 1.5vw;
+  }
+  .top input {
+    width: 25vw;
+    height: 2.5vw;
+    margin-top: 2vw;
+    border-radius: 0.5vw;
+    border: 0.17vw solid var(--blue);
+    padding-left: 0.7vw;
+    font-size: 1.3vw;
+    /* background-color: transparent; */
+  }
+  .top input:focus {
+    outline: 0.13vw solid var(--blue);
+  }
+  .bottom {
+    /* background-color: aqua; */
+    width: 25vw;
+    display: flex;
+    justify-content: space-between;
+  }
+  .bottom button {
+    height: 3vw;
+    width: 8vw;
+    background-color: var(--white);
+    color: var(--blue);
+    border-radius: 0.5vw;
+    border: 0.2vw solid var(--blue);
+    font-size: 1.3vw;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 2vw;
+    cursor: pointer;
+    transition: 0.3s all;
+  }
+  .bottom button:hover {
+    background-color: var(--blue);
+    color: var(--white);
+    transition: 0.3s all;
+  }
+  .hide {
+    display: none;
+  }
+  .dim {
+    filter: brightness(0.5);
+  }
+  .checked-1{
+    text-decoration: line-through;
+    color: gray;
+  }
+  .checked {
+    & .note-text span {
+      text-decoration: line-through;
+      color: gray;
+    }
+  }
