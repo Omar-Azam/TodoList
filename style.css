@@ -29,7 +29,7 @@
   }
   .strip {
     display: flex;
-    margin-top: 0.7vw;
+    margin-top: 1.5vw;
   }
   .search {
     height: 2.5vw;
@@ -99,9 +99,9 @@
     font-size: 1.8vw;
   }
   .todo {
-    height: 75%;
+    height: 90%;
     width: 45%;
-    margin-top: 0.3vw;
+    margin-top: 0.5vw;
     overflow: auto;
     scrollbar-width: none;
     /* display: flex;
@@ -149,17 +149,17 @@
     display: block;
   }
   .add {
-    height: 3vw;
-    width: 3vw;
+    height: 2.5vw;
+    width: 2.5vw;
     background-color: var(--blue);
     color: var(--white);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 3.5vw;
-    padding-bottom: 0.9vw;
-    margin-left: 53vw;
+    font-size: 2.5vw;
+    padding-bottom: 0.53vw;
+    margin-left: 1vw;
     cursor: pointer;
   }
   .popup {
@@ -180,15 +180,15 @@
     flex-direction: column;
     align-items: center;
   }
-  .top h1 {
-    font-size: 1.7vw;
+  .top h2 {
+    font-size: 1.5vw;
     text-transform: uppercase;
-    margin-top: 1.5vw;
+    margin-top: 1.3vw;
   }
   .top input {
     width: 25vw;
     height: 2.5vw;
-    margin-top: 2vw;
+    margin-top: 1vw;
     border-radius: 0.5vw;
     border: 0.17vw solid var(--blue);
     padding-left: 0.7vw;
@@ -198,6 +198,14 @@
   .top input:focus {
     outline: 0.13vw solid var(--blue);
   }
+  
+  .top h3{
+    font-size: 1.3vw;
+    text-transform: uppercase;
+    color: red;
+    margin-top: 1.5vw;
+  }
+
   .bottom {
     /* background-color: aqua; */
     width: 25vw;
@@ -238,4 +246,172 @@
       text-decoration: line-through;
       color: gray;
     }
+  }
+
+
+
+  @media (max-width: 480px) {
+    .container{
+      flex-direction: column-reverse;
+      justify-content: start;
+    }
+    .strip{
+      margin: 0 0 5vw 0;
+      position: fixed;
+      z-index: 9999999;
+      bottom: 1.5vw;
+      background-color: var(--white);
+    }
+    .search {
+      height: 10vw;
+      width: 75vw;
+      /* background-color: burlywood; */
+      display: flex;
+      align-items: center;
+      border-radius: 2vw;
+      border: 0.5vw solid var(--blue);
+      background-color: var(--white);
+      /* outline: 0.1vw solid; */
+    }
+    .search:focus-within {
+      /* This is the key to the focus behavior */
+      outline: 0.35vw solid var(--blue); /* Blue outline */
+    }
+    .search-field {
+      outline: none;
+      background-color: transparent;
+      /* background-color: aliceblue; */
+      border: none;
+      height: 10vw;
+      width: 60vw;
+      border-radius: 2vw;
+      font-size: 4vw;
+      margin-left: 2vw;
+    }
+    .bx-search-alt {
+      /* height: 3vw; */
+      /* margin-top: 1vw; */
+      font-size: 5vw;
+      margin-left: 5vw;
+      color: var(--blue);
+    }
+    .add {
+      height: 10vw;
+      width: 10vw;
+      background-color: var(--blue);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10vw;
+      /* padding-bottom: 1vw; */
+      margin-left: 3.5vw;
+      cursor: pointer;
+    }
+    .popup {
+      height: 30%;
+      width: 70%;
+      background-color: var(--white);
+      position: absolute;
+      top: 35%;
+      left: 15%;
+      border-radius: 3vw;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .hide {
+      display: none;
+    }
+    .top {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .top h2 {
+      font-size: 4vw;
+      text-transform: uppercase;
+      margin-top: 2.5vw;
+    }
+    .top input {
+      width: 55vw;
+      height: 10vw;
+      margin-top: 3vw;
+      border-radius: 2vw;
+      border: 0.5vw solid var(--blue);
+      padding-left: 2vw;
+      font-size: 4vw;
+      /* background-color: transparent; */
+    }
+    .top input:focus {
+      outline: 0.35vw solid var(--blue);
+    }
+    
+    .top h3{
+      font-size: 4vw;
+      text-transform: uppercase;
+      color: red;
+      margin-top: 5vw;
+    }
+  
+    .bottom {
+      /* background-color: aqua; */
+      width: 55vw;
+      display: flex;
+      justify-content: space-between;
+    }
+    .bottom button {
+      height: 10vw;
+      width: 22vw;
+      background-color: var(--blue);
+      color: var(--blue);
+      border-radius: 2vw;
+      border: 0.5vw solid var(--blue);
+      font-size: 4vw;
+      color: var(--white);
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 4vw;
+      cursor: pointer;
+      transition: 0.3s all;
+    }
+    .todo{
+      height: 90%;
+      width: 85%;
+      font-size: 5rem;
+      margin-bottom: 5%;
+      margin-top: 5%;
+    }
+    .note {
+      height: 15vw;
+      border-bottom: 0.15vw solid var(--blue);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .note-text {
+      display: flex;
+      align-items: center;
+    }
+    .check {
+      height: 5vw;
+      width: 5vw;
+      /* outline: 0.1vw solid; */
+      color: grey;
+      /* background-color: transparent; */
+    }
+    .note-text span {
+      font-size: 4.5vw;
+      font-weight: 600;
+      margin-left: 3vw;
+      /* text-transform: capitalize; */
+    }
+    .bx-message-rounded-x{
+      font-size: 5vw;
+      /* color: grey; */
+      display: block;
+      /* cursor: pointer; */
+  }
   }

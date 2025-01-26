@@ -45,7 +45,6 @@ if (localStorage.getItem("num") === null) {
   }
 }
 
-
 add.addEventListener("click", (e) => {
   popUp.classList.remove("hide");
   document.querySelector(".container").classList.add("dim");
@@ -53,28 +52,85 @@ add.addEventListener("click", (e) => {
 cancel.addEventListener("click", (e) => {
   popUp.classList.add("hide");
   document.querySelector(".container").classList.remove("dim");
+  popUp.querySelector(".top .nothing").classList.add("hide");
+  popUp.querySelector(".top .same").classList.add("hide");
 });
+// apply.addEventListener("click", (e) => {
+//   popUp.classList.add("hide");
+//   document.querySelector(".container").classList.remove("dim");
+//   location.reload();
+//   if (inp.value.trim() === "") {
+//   } else {
+//         todo.innerHTML += `<div class="note">
+//                       <div class="note-text">
+//                         <input class="check" type="checkbox" />
+//                         <span class="item">${inp.value.trim()}</span>
+//                       </div>
+//                       <div class="edit">
+//                         <i class='bx bx-message-rounded-x' title="delete"></i>
+//                         </div>
+//                     </div>`;
+//         localStorage.setItem(`todo${num}`, inp.value.trim());
+//         inp.value = "";
+//         num++;
+//         localStorage.setItem("num", num);
+//       }
+//       });
+
+function addNote() {
+// Prevent adding duplicate notes
+if (inp.value.trim() === "") {
+  popUp.querySelector(".top .same").classList.add("hide");
+  popUp.querySelector(".top .nothing").classList.remove("hide");
+  return;
+}
+
+// Check if the note already exists in the localStorage or in the DOM
+const notes = document.querySelectorAll(".note .item");
+const newNoteText = inp.value.trim();
+let isDuplicate = false;
+
+notes.forEach((note) => {
+  if (note.textContent === newNoteText) {
+    isDuplicate = true;
+  }
+});
+
+if (isDuplicate) {
+  popUp.querySelector(".top .nothing").classList.add("hide");
+  popUp.querySelector(".top .same").classList.remove("hide");
+  inp.value = ""; // Clear input field
+  return;
+}
+
+// Add the new note if it doesn't exist
+todo.innerHTML += `<div class="note">
+                    <div class="note-text">
+                      <input class="check" type="checkbox" />
+                      <span class="item">${newNoteText}</span>
+                    </div>
+                    <div class="edit">
+                      <i class='bx bx-message-rounded-x' title="delete"></i>
+                    </div>
+                  </div>`;
+localStorage.setItem(`todo${num}`, newNoteText);
+inp.value = ""; // Clear input field
+num++;
+localStorage.setItem("num", num);
+location.reload();
+// popUp.classList.add("hide");
+// document.querySelector(".container").classList.remove("dim");
+}
+
 apply.addEventListener("click", (e) => {
-  popUp.classList.add("hide");
-  document.querySelector(".container").classList.remove("dim");
-  if (inp.value.trim() === "") {
-  } else {
-        todo.innerHTML += `<div class="note">
-                      <div class="note-text">
-                        <input class="check" type="checkbox" />
-                        <span class="item">${inp.value}</span>
-                      </div>
-                      <div class="edit">
-                        <i class='bx bx-message-rounded-x' title="delete"></i>
-                        </div>
-                    </div>`;
-        localStorage.setItem(`todo${num}`, inp.value);
-        inp.value = "";
-        num++;
-        localStorage.setItem("num", num);
-        location.reload();
-      }
-      });
+  addNote()
+});
+
+window.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    addNote()
+  }
+});
 
 searchField.addEventListener("keyup", () => {
   // Use keyup event for live search
@@ -86,7 +142,6 @@ searchField.addEventListener("keyup", () => {
     note.style.display = itemText.includes(searchTerm) ? "flex" : "none";
   });
 });
-
 
 todo.addEventListener("change", (event) => {
   if (event.target.classList.contains("check")) {
@@ -149,17 +204,17 @@ todo.addEventListener("click", (e) => {
 
       // if (localStorage.getItem("num") !== null) {
       //   num = parseInt(localStorage.getItem("num"), 10);
-      // }   
+      // }
 
-// if(todo){
-//   if(todo.innerHTML == ""){
-//     todo.classList.add("empty");
-//   } else {
-//     todo.classList.remove("empty");
-//   }
-// }
+      // if(todo){
+      //   if(todo.innerHTML == ""){
+      //     todo.classList.add("empty");
+      //   } else {
+      //     todo.classList.remove("empty");
+      //   }
+      // }
 
-      if(localStorage.getItem(itemText) == itemText){
+      if (localStorage.getItem(itemText) == itemText) {
         localStorage.removeItem(itemText);
       }
       // Remove the corresponding item from localStorage
@@ -175,11 +230,10 @@ todo.addEventListener("click", (e) => {
   }
 
   location.reload();
-
 });
 
-if(todo){
-  if(todo.innerHTML == ""){
+if (todo) {
+  if (todo.innerHTML == "") {
     todo.classList.add("empty");
     num = 1;
     // localStorage.setItem("num", num);

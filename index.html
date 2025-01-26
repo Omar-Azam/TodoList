@@ -13,31 +13,33 @@
   </head>
   <body>
     <div class="container">
-      <h1 class="title">todo list</h1>
+      <!-- <h1 class="title">todo list</h1> -->
       <div class="strip">
         <div class="search">
-          <input class="search-field" type="text" />
+          <input class="search-field" type="text" placeholder="Search note..."/>
           <i class="bx bx-search-alt"></i>
         </div>
-        <div class="all">
+        <!-- <div class="all">
           <span>all</span>
           <i class="bx bxs-chevron-down"></i>
-        </div>
-        <div class="theme" title="change theme">
+        </div> -->
+        <div class="add" title="add">&#43;</div>
+        <!-- <div class="theme" title="change theme">
           <i class="bx bx-moon"></i>
-        </div>
+        </div> -->
       </div>
       <div class="todo"></div>
-      <div class="add" title="add">+</div>
     </div>
     <div class="popup hide">
       <div class="top">
-        <h1>new note</h1>
-        <input class="add-task" type="text" />
+        <h2>new note</h2>
+        <input class="add-task" type="text" placeholder="Input your note..."/>
+        <h3 class="same hide">This note already exists!</h3>
+        <h3 class="nothing hide">Note cannot be empty!</h3>
       </div>
       <div class="bottom">
-        <button class="cancel">cancel</button>
-        <button class="apply">apply</button>
+        <button class="cancel" title="cancel">cancel</button>
+        <button class="apply" title="add">add</button>
       </div>
     </div>
     <!-- <input type="text" name="" id="" />
